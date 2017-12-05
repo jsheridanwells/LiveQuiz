@@ -1,0 +1,10 @@
+<% if current_user %>
+  <header class="navbar navbar-fixed-top">
+    <div class="container">
+      <%= link_to 'LiveQuiz', root_path, id: 'logo'%>
+      <ul class="nav navbar-nav navbar-right">
+        <%= link_to 'Log Out', 'logout' %>
+      </ul>
+    </div>
+  </header>
+<% end %>
