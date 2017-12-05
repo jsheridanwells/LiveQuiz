@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'static_pages#home'
 
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
 
 
   resources :presentations
+
 end
