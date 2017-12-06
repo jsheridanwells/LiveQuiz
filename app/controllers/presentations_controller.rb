@@ -5,6 +5,8 @@ class PresentationsController < ApplicationController
     @presentations = Presentation.where(user_id: current_user.id)
   end
 
-
+  def show
+    @presentation = Presentation.find(params[:id])
+  end
 
 end

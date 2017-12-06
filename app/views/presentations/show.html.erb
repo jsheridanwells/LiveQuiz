@@ -1,0 +1,11 @@
+<div class="single-presentation">
+  <div class="single-presentation-title">
+    <h1><%= @presentation.title %></h1>
+  </div>
+  <div class="single-presentation-body">
+    <%= image_tag 'http://placehold.it/600x400', alt: 'placeholder' %>
+  </div>
+  <div class="single-presentation-buttons">
+    <%= link_to 'Add New Poll', new_poll_path, class: 'btn btn-primary', role: 'button' %>
+  </div>
+</div>
