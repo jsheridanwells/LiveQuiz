@@ -19,13 +19,18 @@ class PollsController < ApplicationController
     end
   end
 
+  def show
+    @poll = Poll.find_by(:id => params[:id])
+    @items = Item.where(:poll_id => @poll.id)
+  end
+
   private
     def poll_params
-      params.require(:poll).permit(:presentation_id, :content)
-    end
-
-    def item_params
-      params.require(:item).permit(:content, :poll_id)
+      params.require(:poll).permit(
+        :presentation_id,
+        :content,
+        items_attributes: [:content]
+        )
     end
 
 end
