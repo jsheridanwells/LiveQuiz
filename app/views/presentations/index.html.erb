@@ -4,9 +4,19 @@
     <div class="row">
       <% presentation_arr.each do |presentation| %>
         <div class="col-md-4 presentation-card">
-          <h3 class="presentation-card-title">
-            <%= link_to "#{presentation.title}", "presentations/#{presentation.id}" %>
-          </h3>
+          <div class="presentation-card-title">
+            <h3 class="presentation-card-heading">
+              <%= link_to "#{presentation.title}", "presentations/#{presentation.id}" %>
+            </h3>
+          </div>
+          <div class="presentation-body">
+            <%= image_tag 'http://placehold.it/200x200', class: 'presentation-card-image', alt: 'placeholder' %>
+          </div>
+          <div class="presentation-buttons">
+            <%= link_to 'Broadcast', '#', class: 'btn btn-success', role: 'button' %>
+            <%= link_to 'Edit', "presentations/#{presentation.id}", class: 'btn btn-primary', role: 'button' %>
+            <%= link_to 'Delete', '#', class: 'btn btn-danger', role: 'button' %>
+          </div>
         </div>
       <% end %>
     </div>

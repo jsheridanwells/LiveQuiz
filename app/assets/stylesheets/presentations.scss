@@ -3,10 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .presentation-card {
-  border: 1px solid red;
-  min-height: 300px;
+  min-height: 320px;
 }
 
-h3.presentation-card-title {
+.presentation-card-title {
+  height: 50px;
+}
+
+h3.presentation-card-heading {
   font-size: 1em;
+}
+
+.presentation-body {
+  min-height: 200px;
+}
+
+.presentation-card-image {
+  display: block;
+  margin: 1em auto;
+}
+
+.presentation-buttons {
+  height: 50px;
 }
