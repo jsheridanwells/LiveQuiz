@@ -1,0 +1,10 @@
+<div>
+  <%= @poll.content %>
+  <ul>
+    <% @items.each do |item| %>
+      <li>
+        <%= item.content %>
+      </li>
+    <% end %>
+  </ul>
+</div>
