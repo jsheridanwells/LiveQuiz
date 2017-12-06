@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_many :presentations, dependent: :destroy
+
   def self.find_or_create_from_auth_hash(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.first_name = auth.info.first_name

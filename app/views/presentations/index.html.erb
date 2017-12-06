@@ -1,3 +1,24 @@
-<h1>You've successfully logged in</h1>
-
-<p>Now go ahead and <%= link_to 'log out', '/logout' %></p>
+<div id="all-presentations">
+  <h2>My Presentations</h2>
+  <% @presentations.each_slice(3) do |presentation_arr| %>
+    <div class="row">
+      <% presentation_arr.each do |presentation| %>
+        <div class="col-md-4 presentation-card">
+          <div class="presentation-card-title">
+            <h3 class="presentation-card-heading">
+              <%= link_to "#{presentation.title}", "presentations/#{presentation.id}" %>
+            </h3>
+          </div>
+          <div class="presentation-body">
+            <%= image_tag 'http://placehold.it/200x200', class: 'presentation-card-image', alt: 'placeholder' %>
+          </div>
+          <div class="presentation-buttons">
+            <%= link_to 'Broadcast', '#', class: 'btn btn-success', role: 'button' %>
+            <%= link_to 'Edit', "presentations/#{presentation.id}", class: 'btn btn-primary', role: 'button' %>
+            <%= link_to 'Delete', '#', class: 'btn btn-danger', role: 'button' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
