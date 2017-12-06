@@ -7,6 +7,7 @@ class PresentationsController < ApplicationController
 
   def show
     @presentation = Presentation.find(params[:id])
+    session[:current_presentation_id] = @presentation.id
   end
 
 end
