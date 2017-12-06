@@ -5,7 +5,4 @@ class PresentationsController < ApplicationController
 
   end
 
-  def show
-
-  end
 end
