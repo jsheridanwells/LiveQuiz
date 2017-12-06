@@ -1,7 +1,14 @@
 <h1>Add a Poll</h1>
 
-<%= form_for(@poll) do |f| %>
-  <%= f.label :content, 'Question:' %>
+<%= form_for(setup_poll(@poll)) do |f| %>
+  <%= f.label :content, 'Question:', class: 'form-control' %>
   <%= f.text_field :content, class: 'form-control' %>
+
+  <%= f.fields_for :items do |ff| %>
+    <%= ff.label :content, 'Answer Choice:' %>
+    <%= ff.text_field :content, class: 'form-control' %>
+  <% end %>
+
+
   <%= f.submit 'Add Poll' %>
 <% end %>

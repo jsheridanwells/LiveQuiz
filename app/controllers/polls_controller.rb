@@ -11,7 +11,12 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(poll_params)
     @poll.presentation_id = session[:current_presentation_id]
-    redirect_to @poll
+
+    if @poll.save
+      redirect_to @poll
+    else
+      render :action => 'new'
+    end
   end
 
   private
