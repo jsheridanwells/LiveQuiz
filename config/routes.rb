@@ -7,8 +7,16 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
-  resources :presentations
+  resources :presentations do
+    collection do
+      patch :broadcast
+      patch :end_broadcast
+    end
+  end
+
   resources :polls
   resources :items
+  resources :presentations
+
 
 end

@@ -13,9 +13,9 @@
             <%= image_tag 'http://placehold.it/200x200', class: 'presentation-card-image', alt: 'placeholder' %>
           </div>
           <div class="presentation-buttons">
-            <%= link_to 'Broadcast', '#', class: 'btn btn-success', role: 'button' %>
-            <%= link_to 'Edit', "presentations/#{presentation.id}", class: 'btn btn-primary', role: 'button' %>
-            <%= link_to 'Delete', '#', class: 'btn btn-danger', role: 'button' %>
+            <%= form_for presentation, url: { action: "broadcast", params: {id: presentation.id} } do |f| %>
+              <%= f.submit 'Broadcast', class: 'btn btn-success', role: 'button' %>
+            <% end %>
           </div>
         </div>
       <% end %>
