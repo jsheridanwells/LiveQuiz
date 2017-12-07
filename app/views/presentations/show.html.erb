@@ -6,13 +6,15 @@
     <%= image_tag 'http://placehold.it/600x400', alt: 'placeholder' %>
   </div>
   <div class="single-presentation-buttons">
-    <% if @presentation.broadcasting == true %>
-      <%= form_for @presentation, url: {action: 'end_broadcast'}  do |f| %>
-        <%= f.submit 'End Broadcast', class: 'btn btn-danger' %>
-      <% end %>
+    <% if current_user %>
+      <% if @presentation.broadcasting == true %>
+        <%= form_for @presentation, url: {action: 'end_broadcast'}  do |f| %>
+          <%= f.submit 'End Broadcast', class: 'btn btn-danger' %>
+        <% end %>
 
-    <% else  %>
-      <%= link_to 'Add New Poll', new_poll_path, class: 'btn btn-primary', role: 'button' %>
+      <% else  %>
+        <%= link_to 'Add New Poll', new_poll_path, class: 'btn btn-primary', role: 'button' %>
+      <% end %>
     <% end %>
   </div>
 </div>

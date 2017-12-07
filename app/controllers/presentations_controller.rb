@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, except: [:show]
 
   def index
     @presentations = Presentation.where(user_id: current_user.id)
@@ -7,6 +7,9 @@ class PresentationsController < ApplicationController
 
   def show
     @presentation = Presentation.find(params[:id])
+    unless @presentation.broadcasting
+      authenticate
+    end
     session[:current_presentation_id] = @presentation.id
   end
 
@@ -22,7 +25,6 @@ class PresentationsController < ApplicationController
   end
 
   def end_broadcast
-    puts "$$$$$$$$$$$$$$$$#{params}"
     @current_presentation = Presentation.find(session[:current_presentation_id])
     @current_presentation.broadcasting = false
     @current_presentation.save
