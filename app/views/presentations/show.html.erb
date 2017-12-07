@@ -8,12 +8,15 @@
   <div class="single-presentation-buttons">
     <% if current_user %>
       <% if @presentation.broadcasting == true %>
-        <%= form_for @presentation, url: {action: 'end_broadcast'}  do |f| %>
+        <%= form_for @presentation, url: {action: 'end_broadcast'}, html: {class: 'form-button'}  do |f| %>
           <%= f.submit 'End Broadcast', class: 'btn btn-danger' %>
         <% end %>
 
       <% else  %>
         <%= link_to 'Add New Poll', new_poll_path, class: 'btn btn-primary', role: 'button' %>
+        <%= form_for @presentation, url: { action: 'broadcast', params: {id: @presentation.id}}, html: {class: 'form-button'} do |f| %>
+          <%= f.submit 'Broadcast', class: 'btn btn-success' %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

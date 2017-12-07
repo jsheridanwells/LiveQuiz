@@ -14,15 +14,6 @@
           </div>
           <div class="presentation-buttons">
 
-            <%= form_for presentation, url: {controller: 'polls', action: 'new', params: {presentation_id: presentation.id}}, :html => {:method => :get} do |f| %>
-              <%= f.submit 'Add New Poll', class: 'btn btn-primary' %>
-            <% end %>
-
-
-            <%= form_for presentation, url: { action: 'broadcast', params: {id: presentation.id} } do |f| %>
-              <%= f.submit 'Broadcast', class: 'btn btn-success' %>
-            <% end %>
-
           </div>
         </div>
       <% end %>
