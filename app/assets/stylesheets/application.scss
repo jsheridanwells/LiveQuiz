@@ -3,6 +3,11 @@
 @import 'static_pages';
 @import 'presentations';
 
+// display all buttons-as-forms inline
+.form-button {
+  display: inline;
+}
+
 footer {
   margin-left: 2em;
 }

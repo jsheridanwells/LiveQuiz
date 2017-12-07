@@ -28,7 +28,7 @@ class PresentationsController < ApplicationController
     @current_presentation = Presentation.find(session[:current_presentation_id])
     @current_presentation.broadcasting = false
     @current_presentation.save
-    redirect_to presentations_path
+    redirect_to @current_presentation
   end
 
   private

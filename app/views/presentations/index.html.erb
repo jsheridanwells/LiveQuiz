@@ -13,9 +13,7 @@
             <%= image_tag 'http://placehold.it/200x200', class: 'presentation-card-image', alt: 'placeholder' %>
           </div>
           <div class="presentation-buttons">
-            <%= form_for presentation, url: { action: "broadcast", params: {id: presentation.id} } do |f| %>
-              <%= f.submit 'Broadcast', class: 'btn btn-success', role: 'button' %>
-            <% end %>
+
           </div>
         </div>
       <% end %>

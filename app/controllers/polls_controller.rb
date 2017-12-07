@@ -17,6 +17,7 @@ class PollsController < ApplicationController
     else
       render :action => 'new'
     end
+
   end
 
   def show
